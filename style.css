@@ -1,6 +1,73 @@
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    font: 100%/1.5 system-ui;
-  }
+  font-family: "Times New Roman", Times, serif;
+  margin: 1in;
+  line-height: 1.5;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+nav li {
+  display: inline;
+  margin-right: 1.5rem;
+  font-size: 14px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24pt;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.contact {
+  text-align: center;
+  font-size: 12pt;
+  margin-bottom: 2em;
+}
+
+.contact a {
+  text-decoration: none;
+  color: black;
+}
+
+.contact i {
+  margin-right: 0.25em;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 12pt;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 11pt;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+time {
+  font-size: 10pt;
+  font-style: italic;
+}
+
+ul {
+  padding-left: 1em;
+  margin-top: 0.2em;
+  font-size: 11pt;
+}
+
+p, li {
+  font-size: 11pt;
+  margin: 0.2em 0;
+}
