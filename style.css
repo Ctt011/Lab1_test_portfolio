@@ -1,25 +1,54 @@
+:root {
+  --color-accent: oklch(65% 50% 0);
+}
+
+html {
+  accent-color: var(--color-accent);
+}
+
 body {
   font-family: "Times New Roman", Times, serif;
-  margin: 1in;
+  max-width: 100ch;
+  margin-inline: max(1em, (100% - 100ch) / 2);
+  padding-inline: 1em;
   line-height: 1.5;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
+/* Navigation Styles */
+nav {
+  display: flex;
+  border-bottom: 1px solid oklch(80% 3% 200);
   margin-bottom: 2rem;
 }
 
+nav ul,
 nav li {
-  display: inline;
-  margin-right: 1.5rem;
-  font-size: 14px;
+  display: contents;
 }
 
+nav a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5em;
+}
+
+nav a.current {
+  border-bottom: 0.4em solid oklch(80% 3% 200);
+  padding-bottom: 0.1em;
+}
+
+nav a:hover {
+  border-bottom: 0.4em solid var(--color-accent);
+  background-color: oklch(from var(--color-accent) 95% 5% h);
+}
+
+/* Typography */
 h1 {
   text-align: center;
   font-size: 24pt;
-  margin-bottom: 0;
+  margin-bottom: 1rem; /* Add spacing below */
   text-transform: uppercase;
 }
 
@@ -71,3 +100,78 @@ p, li {
   font-size: 11pt;
   margin: 0.2em 0;
 }
+input, textarea, button {
+  font: inherit;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+  max-width: 40rem;
+  margin: 2rem auto;
+}
+
+form label {
+  display: contents;
+}
+
+form span {
+  align-self: center;
+  font-weight: bold;
+}
+
+form button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 0.5em 1em;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: oklch(from var(--color-accent) 50% 20% h);
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1.5em;
+  margin-top: 2rem;
+}
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+.projects h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 300%;
+  margin-top: 1rem;
+}
+.profile-pic {
+  display: block;
+  margin: 1rem auto;
+  max-width: 300px;
+  height: auto;
+}
+.welcome {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+

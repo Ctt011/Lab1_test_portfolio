@@ -10,27 +10,33 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/Lab1_test_portfolio/">Home</a></li>
-            <li><a href="/Lab1_test_portfolio/projects/">Projects</a></li>
-            <li><a href="/Lab1_test_portfolio/contact/">Contact</a></li>
-            <li><a href="/Lab1_test_portfolio/resume/">Resume</a></li>
-            <li><a href="https://github.com/Ctt011" target="_blank">GitHub</a></li>
+          <li><a href="../" >Home</a></li>
+          <li><a href="../projects/">Projects</a></li>
+          <li><a href="./" class="current">Contact</a></li>
+          <li><a href="../resume/">Resume</a></li>
+          <li><a href="https://github.com/Ctt011" target="_blank">GitHub</a></li>
         </ul>
-    </nav>
+      </nav>      
     <h1>Contact</h1>
     <p>Get in touch with me here.</p>
    <!-- Contact Form -->
    <form action="mailto:Ctt011@ucsd.edu" method="post" enctype="text/plain">
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" value="test@example.com"><br><br>
-
-    <label for="subject">Subject:</label><br>
-    <input type="text" id="subject" name="subject" value="Inquiry"><br><br>
-
-    <label for="body">Message:</label><br>
-    <textarea id="body" name="body" rows="4" cols="50">Hello, I have a question...</textarea><br><br>
-
+    <label>
+      <span>Email:</span>
+      <input type="email" name="email" value="test@example.com">
+    </label>
+  
+    <label>
+      <span>Subject:</span>
+      <input type="text" name="subject" value="Inquiry">
+    </label>
+  
+    <label>
+      <span>Message:</span>
+      <textarea name="body" rows="4" cols="50">Hello, I have a question...</textarea>
+    </label>
+  
     <button type="submit">Send</button>
-</form>
+  </form>  
 </body>
 </html>
