@@ -159,7 +159,7 @@
     </header>
 
     <main>
-      <h2>Proposition: Wealthy nations are leading the global fight against climate change </h2>
+      <h2>Proposition:Wealthy nations are leading the global fight against climate change </h2>
 
       <section>
         <h3>FOR the Proposition</h3>
@@ -172,12 +172,53 @@
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-            <li><strong>Color Manipulation (-1.5):</strong> Bright blue was used for wealthy nations and light gray for developing nations to emphasize leadership and diminish comparison.</li>
-            <li><strong>Strategic Data Period Selection (-2.0):</strong> Time frame begins in 2010 to favor wealthier countries' recent efforts.</li>
-            <li><strong>Non-Zero Y-Axis (-1.5):</strong> Starting the Y-axis above zero exaggerates differences in growth trajectories.</li>
-            <li><strong>Biased Language (-1.0):</strong> Labels like "Climate Leaders" for wealthy nations reinforce the proposition linguistically.</li>
-            <li><strong>Selective Annotation (-1.5):</strong> Peak values for wealthy nations were highlighted, while downplaying less favorable data.</li>
-            <li><strong>Distorted Pie Chart (-1.0):</strong> Exploded slice and shadow effect overemphasized wealthy nations' contributions.</li>
+            <li><strong>Color Manipulation (-1.5):</strong> 
+              <ul>
+                <li>Wealthy nations set to bright blue, developing nations to light gray</li>
+                <li>Diminishes visual attention to developing nations while emphasizing wealthy nations</li>
+                <li>Creates visual hierarchy not based on data magnitude but desired emphasis</li>
+              </ul>
+            </li>
+          
+            <li><strong>Strategic Data Period Selection (-2.0):</strong>
+              <ul>
+                <li>Time frame starts at 2010 instead of 2008</li>
+                <li>Deliberately selects a period more favorable to wealthy nations</li>
+                <li>Cherry-picks data to support a predetermined conclusion</li>
+              </ul>
+            </li>
+          
+            <li><strong>Non-Zero Y-Axis (-1.5):</strong>
+              <ul>
+                <li>Y-axis minimum set to 80% of the lowest value instead of zero</li>
+                <li>Visually exaggerates differences in growth</li>
+                <li>Violates the principle that area charts should start at zero</li>
+              </ul>
+            </li>
+          
+            <li><strong>Biased Language in Titles and Legend Labels (-1.0)</strong>
+              <ul>
+                <li>"Wealthy Nations" relabeled as "Climate Leaders"; "Developing Nations" as "Other Nations"</li>
+                <li>Frames the proposition linguistically before the viewer sees the data</li>
+                <li>Uses loaded language to imply hierarchy unsupported by data</li>
+              </ul>
+            </li>
+          
+            <li><strong>Selective Annotation (-1.5):</strong> 
+              <ul>
+                <li>Only peak performance of wealthy nations is annotated</li>
+                <li>Insights box expanded to include persuasive, conclusive language</li>
+                <li>Ignores counter-evidence and selectively highlights positives</li>
+              </ul>
+            </li>
+          
+            <li><strong>Distorted Pie Chart with Explode Effect (-1.0):</strong>
+              <ul>
+                <li>Increased explode value from 0.1 to 0.2 with shadow effect</li>
+                <li>Overemphasizes the wealthy nations’ slice beyond proportional scale</li>
+                <li>Functions to visually elevate one group’s contribution</li>
+              </ul>
+            </li>
         </ul>
       </section>
 
@@ -192,11 +233,76 @@
         <p>Design Decisions and Rationale:</p>
 
         <ul>
-            <li><strong>Chart 1: Line Plot - Normalized CO₂ Intensity (+2.0):</strong> Uses relative scaling to show that developing nations made greater proportional reductions, allowing for fair comparisons despite unequal starting points.</li>
-            <li><strong>Chart 2: Horizontal Bar - Fossil Fuel Subsidies (% of GDP)(+1.5):</strong> Data aggregated to top 10 countries. Title explicitly notes how many are wealthy. Offers transparency without exaggeration.</li>
-            <li><strong>Chart 3: Bar Chart - CO₂ Intensity Reduction(+1.5):</strong> Shows average and median reductions by group. Bars are directly labeled with % values for clarity.</li>
-            <li><strong>Chart 4: Box + Strip Plot - CO₂ Intensity Distribution(+2.0):</strong> Highlights overlapping ranges between wealthy and developing nations, allowing nuanced understanding beyond group averages.</li>
-        </ul>
+            <li><strong>Chart 1: Line Plot – Normalized Comparison of CO₂ Reduction</strong>
+              <ul>
+                <li><strong>CO₂ intensity as a percentage of starting value (indexed to 1.0 in year 1) (+2.0)</strong></li>
+                <li>The line chart shows CO₂ intensity reduction as a percentage relative to the starting point, rather than absolute values.</li>
+                <li>This means that the first year’s value is set to 1.0 for every group or country, and all future values show as proportion of that starting point.</li>
+                <li>By normalizing values, this compares relative progress regardless of starting conditions.</li>
+                <li>It fairly highlights which group (wealthy vs developing nations) made more effortful reductions, not just who started cleaner.</li>
+                <li>This avoids penalizing countries with higher baseline emissions and supports proportional comparisons.</li>
+              </ul>
+            </li>
+          
+            <li><strong>Chart 2: Horizontal Bar Chart – Top Fossil Fuel Subsidizers (% of GDP)</strong>
+              <ul>
+                <li><strong>Aggregation to get % of GDP for each country (+1.5)</strong></li>
+                <li>First filtered the <code>fossil_df</code> for Unit == "Percent of GDP" and Year == latest.</li>
+                <li>Summed all subsidy values per country (some have multiple energy types).</li>
+                <li>Sorted by total subsidy and kept the top 10.</li>
+                <li>Color-coded by group using ISO3.</li>
+          
+                <li><strong>Color-coding to identify wealthy vs. developing nations</strong></li>
+                <li>Shows which countries provide the highest fossil fuel subsidies relative to GDP.</li>
+                <li>By including the number of wealthy nations in the title, it offers context without manipulation.</li>
+          
+                <li><strong>Chart features:</strong>
+                  <ul>
+                    <li>Y-axis = country codes</li>
+                    <li>X-axis = fossil fuel subsidies as % of the country’s GDP</li>
+                  </ul>
+                </li>
+          
+                <li><strong>Insight:</strong> None of the top 10 are wealthy nations. Developing countries still invest heavily in fossil fuel subsidies, which slows transition.</li>
+              </ul>
+            </li>
+          
+            <li><strong>Chart 3: Bar Chart – Average CO₂ Intensity Reduction</strong>
+              <ul>
+                <li><strong>Aggregation to get the average values by group (wealthy vs developing nations) (+1.5)</strong></li>
+                <li>Compared each country's first-year and last-year CO₂ intensity to calculate percentage reduction over time.</li>
+                <li>Grouped by country type (Category) and calculated mean and median reductions.</li>
+          
+                <li><strong>Chart features:</strong>
+                  <ul>
+                    <li>Bar height = average % reduction per group</li>
+                    <li>Labels = exact reduction percentages</li>
+                  </ul>
+                </li>
+          
+                <li><strong>Insight:</strong> Developing nations had greater average and median reductions, challenging the idea that wealth = climate leadership.</li>
+              </ul>
+            </li>
+          
+            <li><strong>Chart 4: Box + Strip Plot – CO₂ Intensity Distribution</strong>
+              <ul>
+                <li><strong>Aggregation to get CO₂ intensity distribution by group (+2.0)</strong></li>
+                <li>Selected the most recent year from <code>co2_by_country_year</code>.</li>
+                <li>Boxplot shows distribution of CO₂ intensity values grouped by category.</li>
+                <li>Stripplot adds individual country points for visibility.</li>
+          
+                <li><strong>Chart features:</strong>
+                  <ul>
+                    <li>Y-axis = CO₂ emitted per unit GDP (lower is better)</li>
+                    <li>Box width = spread of values; dots = variation</li>
+                  </ul>
+                </li>
+          
+                <li><strong>Insight:</strong> Many wealthy countries have higher-than-expected CO₂ intensity, even compared to the developing median. Climate efficiency isn’t guaranteed by income.</li>
+              </ul>
+            </li>
+          </ul>
+          
       </section>
 
       <section>
