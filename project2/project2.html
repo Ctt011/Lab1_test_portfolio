@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+      figure img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Your Name</strong> — <em>Your UCSD Email Address</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: [STATE PROPOSITION]</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="Supporting_view_dashboard.png" alt="Visualization supporting wealthy nations" />
+          <figcaption>BRIEF CAPTION HERE.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+            <li><strong>Color Manipulation (-1.5):</strong> Bright blue was used for wealthy nations and light gray for developing nations to emphasize leadership and diminish comparison.</li>
+            <li><strong>Strategic Data Period Selection (-2.0):</strong> Time frame begins in 2010 to favor wealthier countries' recent efforts.</li>
+            <li><strong>Non-Zero Y-Axis (-1.5):</strong> Starting the Y-axis above zero exaggerates differences in growth trajectories.</li>
+            <li><strong>Biased Language (-1.0):</strong> Labels like "Climate Leaders" for wealthy nations reinforce the proposition linguistically.</li>
+            <li><strong>Selective Annotation (-1.5):</strong> Peak values for wealthy nations were highlighted, while downplaying less favorable data.</li>
+            <li><strong>Distorted Pie Chart (-1.0):</strong> Exploded slice and shadow effect overemphasized wealthy nations' contributions.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="Opposing_view_dashboard.png" alt="Visualization opposing the wealthy nations narrative" />
+          <figcaption>BRIEF CAPTION HERE.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+            <li><strong>Chart 1: Line Plot - Normalized CO₂ Intensity (+2.0):</strong> Uses relative scaling to show that developing nations made greater proportional reductions, allowing for fair comparisons despite unequal starting points.</li>
+            <li><strong>Chart 2: Horizontal Bar - Fossil Fuel Subsidies (% of GDP):</strong> Data aggregated to top 10 countries. Title explicitly notes how many are wealthy. Offers transparency without exaggeration.</li>
+            <li><strong>Chart 3: Bar Chart - CO₂ Intensity Reduction:</strong> Shows average and median reductions by group. Bars are directly labeled with % values for clarity.</li>
+            <li><strong>Chart 4: Box + Strip Plot - CO₂ Intensity Distribution:</strong> Highlights overlapping ranges between wealthy and developing nations, allowing nuanced understanding beyond group averages.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>[While creating these visualizations, the most difficult part was narrowing down the datasets and understanding the specific metrics needed to  best transform them for plotting. My main proposition: “Wealthy nations are leading the global fight against climate change.” In order to create visualizations that support and oppose this stance I used datasets that could support and opposed this stance:
+
+            Pro: 'Trade in Low_Carbon_Technology_Products.csv
+            Con: CO2_Emissions_Intensities_Multipliers.csv, 'Fossil_Fuel_Subsidies.csv'
+            
+            I had the most difficulty in the processing stage, where I had to examine missing values, decide when to fill or drop them, aggregate across different time series, and reshape them into long format for plotting. In addition to understanding each of the chart columns relative to the dataset. 
+            
+            In the opposing visualizations, for the normalized CO₂ intensity trend, I wanted to compare relative progress between groups, not just who started "cleaner”,  so I normalized both groups to their first-year values. The top fossil fuel subsidies chart was motivated by transparency — showing who’s still spending heavily on fossil fuels relative to their economy. The average CO₂ reduction bar chart was created to fairly summarize effort across groups over time. And the distribution boxplot  offered a more nuanced picture, there’s significant overlap, and some wealthy nations still lag behind in emissions efficiency. My design intention across all of these charts was to mainly demonstrate earnest techniques or fact-based, honest, and visually interpretable. 
+            
+            In the Supporting visualization , the “Top Climate Finance Comparison (Horizontal Bar Chart)” 
+            visually demonstrates and compares  wealthy nations' absolute financial commitment to climate action. Aims to showcase wealthy nations' dominance in climate finance contributions. The investment growth line chart showed progression and momentum in climate action. By normalizing the data to a base year, this visualization emphasizes relative growth rather than absolute values, which highlights wealthy nations' sustained investment over time. Shaded areas beneath the lines create a visual of cumulative contribution, highlighting wealthy nations' consistent leadership. The pie chart visualization shows market dominance and global impact, representing wealthy nations' share of global low carbon technology exports. This chart creates an immediate impression of their outsized influence in the green technology market. The Low Carbon Tech Exports as Percentage of GDP (Bar Chart) comparing low carbon tech exports as a percentage of GDP shows proportional relative to economic capacity. Addresses a potential counterargument that wealthy nations' contributions only appear larger because of their larger economies which shows wealthy nations commit a higher percentage of their GDP to climate technology. . 
+            
+            After creating these visualizations, l learned that persuasive and deceptive visualization is often subtle and contextual. And I believe that as data scientists we have a responsibility to interpret and create visualizations that balance advocacy with honesty. Techniques like color emphasis, selective timeframes, and careful metric selection can dramatically influence perception without falsifying data. The same dataset can tell opposite stories depending on which metrics are highlighted and how they're presented. When working with the pro-side visualization, I found that techniques like using saturated colors for wealthy nations, exploding pie chart segments, and carefully worded titles could enhance the narrative without crossing into outright deception.. Effective data visualization requires deep engagement with the underlying questions. This project allowed me to gain a deeper understanding of how design choices influence interpretation and how to balance advocacy with transparency.
+            ]</p>
+      </section>
+    </main>
+  </body>
+</html>
+
