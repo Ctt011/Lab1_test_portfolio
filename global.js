@@ -1,11 +1,11 @@
 console.log("IT’S ALIVE!");
 
-// Helper function to querySelectorAll as an array
+// Utility selector shortcut
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// Pages for navigation
+// Page navigation setup
 let pages = [
   { url: "", title: "Home" },
   { url: "projects/", title: "Projects" },
@@ -14,16 +14,16 @@ let pages = [
   { url: "https://github.com/Ctt011", title: "GitHub" },
 ];
 
-// Set base path for local vs GitHub Pages
+// Base path for GitHub Pages or localhost
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
-  : "/Lab1_test_portfolio/"; 
+  : "/Lab1_test_portfolio/";
 
-// Create and insert <nav>
+// Create <nav>
 let nav = document.createElement("nav");
 document.body.prepend(nav);
 
-// Build nav links
+// Add links
 for (let p of pages) {
   let url = p.url;
   let title = p.title;
@@ -46,7 +46,7 @@ for (let p of pages) {
   nav.append(a);
 }
 
-// Add color scheme switcher
+// Color scheme switcher
 document.body.insertAdjacentHTML(
   'afterbegin',
   `
@@ -61,39 +61,32 @@ document.body.insertAdjacentHTML(
   `
 );
 
-// Get reference to select element
+// Load preference
 const select = document.querySelector(".color-scheme select");
-
-// Set color scheme and remember preference
 function setColorScheme(scheme) {
   document.documentElement.style.setProperty("color-scheme", scheme);
   localStorage.colorScheme = scheme;
 }
-
-// Load saved preference on page load
 if ("colorScheme" in localStorage) {
   setColorScheme(localStorage.colorScheme);
   select.value = localStorage.colorScheme;
 }
-
-// Update scheme when user changes it
 select.addEventListener("input", (e) => {
   setColorScheme(e.target.value);
 });
 
-// Fetch a JSON file and parse it
+//  Helper function to fetch JSON
 export async function fetchJSON(url) {
   try {
     const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch projects: ${response.statusText}`);
-    }
-    const data = await response.json();
-    return data;
+    if (!response.ok) throw new Error(`Failed to fetch: ${response.statusText}`);
+    return await response.json();
   } catch (error) {
-    console.error('Error fetching or parsing JSON data:', error);
+    console.error("Error loading JSON:", error);
   }
 }
+
+// Render projects into given container
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
   projects.forEach((project) => {
@@ -101,11 +94,16 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
       <img src="${project.image}" alt="${project.title}">
-      <p>${project.description}</p>
+      <div>
+        <p>${project.description}</p>
+        <p class="year">${project.year}</p>
+      </div>
     `;
     containerElement.appendChild(article);
   });
 }
+
+// ✅ GitHub data fetch wrapper
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);
 }

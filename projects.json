@@ -1,0 +1,33 @@
+[
+    {
+      "title": "Lung Health Tracker",
+      "description": "Tracks real-time air quality exposure and physiological signals.",
+      "image": "../images/project1.jpg",
+      "year": "2024"
+    },
+    {
+      "title": "Food Classifier",
+      "description": "Uses machine learning to classify recipes by cuisine.",
+      "image": "../images/project2.jpg",
+      "year": "2023"
+    },
+    {
+      "title": "ClimateViz",
+      "description": "Visualizes climate policy data using interactive maps.",
+      "image": "../images/project3.jpg",
+      "year": "2024"
+    },
+    {
+      "title": "Pet Activity Monitor",
+      "description": "Wearable tech for monitoring dog activity and stress.",
+      "image": "../images/project4.jpg",
+      "year": "2023"
+    },
+    {
+      "title": "Social Graph Mapper",
+      "description": "Analyzes and visualizes social media networks.",
+      "image": "../images/project5.jpg",
+      "year": "2022"
+    }
+  ]
+  
