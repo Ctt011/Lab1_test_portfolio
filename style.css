@@ -254,6 +254,63 @@ svg:has(path:hover) path:not(:hover) {
   --color: oklch(60% 45% 0) !important;
   fill: var(--color);
 }
+.stats dt {
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.stats dd {
+  margin: 0 0 1em 0;
+}
+
+.gridlines line {
+  stroke: lightgray;
+  stroke-opacity: 0.6;
+  shape-rendering: crispEdges;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1em;
+  max-width: 200px;
+  z-index: 1000;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 0.5em;
+}
+
+dl.info dt {
+  font-weight: bold;
+}
+
+dl.info dd {
+  margin: 0 0 0.5em 0;
+}
+
+
+.tooltip {
+  transition: opacity 0.2s ease;
+}
+
+.tooltip[hidden] {
+  opacity: 0;
+  pointer-events: none;
+}
+circle.selected {
+  fill: #ff6b6b; /* coral red */
+  stroke: black;
+  stroke-width: 1px;
+}
+
 
 
 
