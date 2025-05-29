@@ -14,6 +14,8 @@ let pages = [
   { url: "https://github.com/Ctt011", title: "GitHub" },
 ];
 
+//{ url: "meta/", title: "Meta Analysis" } // add later
+
 // Base path for GitHub Pages or localhost
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
